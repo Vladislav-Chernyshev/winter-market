@@ -23,7 +23,29 @@ public class Cart {
     }
 
     public void add(Product product) { //TODO: Доработать в ДЗ
-        items.add(new CartItem(product.getId(), product.getTitle(), 1, product.getPrice(), product.getPrice()));
+        boolean check = false;
+        for (CartItem cartItem : items) {
+            if (cartItem.getProductId() == product.getId()) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            for (CartItem item : items) {
+                if (item.getProductId() != null && item.getProductId() == product.getId()) {
+                    item.setQuantity(item.getQuantity() + 1);
+                    item.setPrice(item.getPricePerProduct() * item.getQuantity());
+                    break;
+                }
+            }
+        } else {
+            items.add(new CartItem(product.getId(), product.getTitle(), 1, product.getPrice(), product.getPrice()));
+            System.out.println("В корзину добавлен новый товар");
+        }
+
+        if (items.isEmpty()) {
+            items.add(new CartItem(product.getId(), product.getTitle(), 1, product.getPrice(), product.getPrice()));
+        }
         recalculate();
     }
 
@@ -33,5 +55,45 @@ public class Cart {
             totalPrice += item.getPrice();
         }
     }
+
+    public void clearCart() {
+        items.clear();
+        totalPrice = 0;
+        System.out.println("Корзина Очищенна");
+    }
+
+    public void plusProductToCart(Long itemID) {
+        for (CartItem item : items) {
+            if (item.getProductId() != null && item.getProductId() == itemID) {
+                item.setQuantity(item.getQuantity() + 1);
+                item.setPrice(item.getPricePerProduct() * item.getQuantity());
+                recalculate();
+                break;
+            }
+
+        }
+    }
+
+    public void minusProductToCart(Long itemId) {
+        for (CartItem item : items) {
+            if (item.getProductId() != null && item.getProductId() == itemId) {
+                if (item.getQuantity() == 1) {
+                    return;
+                } else {
+                    item.setQuantity(item.getQuantity() - 1);
+                    item.setPrice(item.getPricePerProduct() * item.getQuantity());
+                    recalculate();
+                    break;
+                }
+            }
+
+        }
+    }
+
+    public void deleteProductFromCart(Long itemId) {
+        items.removeIf(item -> item.getProductId() != null && item.getProductId() == itemId);
+        recalculate();
+    }
+
 
 }
