@@ -30,4 +30,8 @@ public class CartService {
         tempCart.add(product);
     }
 
+    public void clearCart(){
+        tempCart.clearCart();
+    }
+
 }

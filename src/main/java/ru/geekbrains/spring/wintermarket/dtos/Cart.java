@@ -56,8 +56,9 @@ public class Cart {
         }
     }
 
-    public void addToCart(Product product) {
-
+    public void clearCart() {
+        items.clear();
+        System.out.println("Корзина Очищенна");
     }
 
 

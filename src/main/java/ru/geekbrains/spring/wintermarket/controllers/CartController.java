@@ -27,4 +27,9 @@ public class CartController {
         return cartService.getCurrentCart();
     }
 
+    @GetMapping("/clear")
+    public void clearCart() {
+        cartService.clearCart();
+    }
+
 }
