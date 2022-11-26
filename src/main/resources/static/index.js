@@ -54,6 +54,22 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
+    $scope.plusProductToCart = function (productId) {
+        $http.get('http://localhost:8189/winter/api/v1/cart/plus/' + productId)
+            .then(function (response) {
+                $scope.cart = response.data;
+                $scope.loadCart();
+            });
+    }
+
+    $scope.minusProductToCart = function (productId) {
+        $http.get('http://localhost:8189/winter/api/v1/cart/minus/' + productId)
+            .then(function (response) {
+                $scope.cart = response.data;
+                $scope.loadCart();
+            });
+    }
+
     $scope.loadProducts();
     $scope.loadCart();
 });

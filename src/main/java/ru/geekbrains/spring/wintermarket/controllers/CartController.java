@@ -32,4 +32,14 @@ public class CartController {
         cartService.clearCart();
     }
 
+    @GetMapping("/plus/{id}")
+    public void plusProductToCart(@PathVariable Long id){
+        cartService.plusProductToCart(id);
+    }
+
+    @GetMapping("/minus/{id}")
+    public void minusProductToCart(@PathVariable Long id){
+        cartService.minusProductToCart(id);
+    }
+
 }

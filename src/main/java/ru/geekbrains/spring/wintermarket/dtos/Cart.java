@@ -62,5 +62,33 @@ public class Cart {
         System.out.println("Корзина Очищенна");
     }
 
+    public void plusProductToCart(Long itemID) {
+        for (CartItem item : items) {
+            if (item.getProductId() != null && item.getProductId() == itemID) {
+                item.setQuantity(item.getQuantity() + 1);
+                item.setPrice(item.getPricePerProduct() * item.getQuantity());
+                recalculate();
+                break;
+            }
+
+        }
+    }
+
+    public void minusProductToCart(Long itemID) {
+        for (CartItem item : items) {
+            if (item.getProductId() != null && item.getProductId() == itemID) {
+                if (item.getQuantity() == 1) {
+                    return;
+                }else {
+                    item.setQuantity(item.getQuantity() - 1);
+                    item.setPrice(item.getPricePerProduct() * item.getQuantity());
+                    recalculate();
+                    break;
+                }
+            }
+
+        }
+    }
+
 
 }

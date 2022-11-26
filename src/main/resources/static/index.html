@@ -35,29 +35,29 @@
             <td>{{p.title}}</td>
             <td>{{p.price}}</td>
             <td>
-<!--                <button type="button" class="btn btn-primary" ng-click="showProductInfo(p.id)">Инфо</button>-->
-<!--                <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить</button>-->
+                <!--                <button type="button" class="btn btn-primary" ng-click="showProductInfo(p.id)">Инфо</button>-->
+                <!--                <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить</button>-->
                 <button class="btn btn-success" ng-click="addToCart(p.id)">Добавить в корзину</button>
             </td>
         </tr>
         </tbody>
     </table>
     <p></p>
-<!--    <h3>Добавить продукт</h3>-->
-<!--    <p></p>-->
-<!--    <form class="row g-3" ng-submit="createNewProduct()">-->
-<!--        <div class="col-auto">-->
-<!--            <input type="text" class="form-control" id="newProductTitle" ng-model="newProduct.title"-->
-<!--                   placeholder="Название">-->
-<!--        </div>-->
-<!--        <div class="col-auto">-->
-<!--            <input type="number" class="form-control" id="newProductPrice" ng-model="newProduct.price"-->
-<!--                   placeholder="Цена">-->
-<!--        </div>-->
-<!--        <div class="col-auto">-->
-<!--            <button type="submit" class="btn btn-primary mb-3">Создать</button>-->
-<!--        </div>-->
-<!--    </form>-->
+    <!--    <h3>Добавить продукт</h3>-->
+    <!--    <p></p>-->
+    <!--    <form class="row g-3" ng-submit="createNewProduct()">-->
+    <!--        <div class="col-auto">-->
+    <!--            <input type="text" class="form-control" id="newProductTitle" ng-model="newProduct.title"-->
+    <!--                   placeholder="Название">-->
+    <!--        </div>-->
+    <!--        <div class="col-auto">-->
+    <!--            <input type="number" class="form-control" id="newProductPrice" ng-model="newProduct.price"-->
+    <!--                   placeholder="Цена">-->
+    <!--        </div>-->
+    <!--        <div class="col-auto">-->
+    <!--            <button type="submit" class="btn btn-primary mb-3">Создать</button>-->
+    <!--        </div>-->
+    <!--    </form>-->
     <h3>Корзина</h3>
     <button class="btn btn-danger" ng-click="clearCart()">Очистить корзину</button>
     <form class="row g-3">
@@ -67,7 +67,6 @@
                 <td>Название</td>
                 <td>Количество</td>
                 <td>Цена</td>
-
             </tr>
             </thead>
             <tbody>
@@ -75,6 +74,10 @@
                 <td>{{item.productTitle}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.pricePerProduct + ' x ' + item.quantity + ' = ' + item.price}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="minusProductToCart(item.productId)">-</button>
+                    <button class="btn btn-primary" ng-click="plusProductToCart(item.productId)">+</button>
+                </td>
             </tr>
             <tr>
                 <td>Итого</td>
