@@ -58,6 +58,7 @@ public class Cart {
 
     public void clearCart() {
         items.clear();
+        totalPrice = 0;
         System.out.println("Корзина Очищенна");
     }
 
