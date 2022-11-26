@@ -74,12 +74,12 @@ public class Cart {
         }
     }
 
-    public void minusProductToCart(Long itemID) {
+    public void minusProductToCart(Long itemId) {
         for (CartItem item : items) {
-            if (item.getProductId() != null && item.getProductId() == itemID) {
+            if (item.getProductId() != null && item.getProductId() == itemId) {
                 if (item.getQuantity() == 1) {
                     return;
-                }else {
+                } else {
                     item.setQuantity(item.getQuantity() - 1);
                     item.setPrice(item.getPricePerProduct() * item.getQuantity());
                     recalculate();
@@ -88,6 +88,11 @@ public class Cart {
             }
 
         }
+    }
+
+    public void deleteProductFromCart(Long itemId) {
+        items.removeIf(item -> item.getProductId() != null && item.getProductId() == itemId);
+        recalculate();
     }
 
 

@@ -70,6 +70,14 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
+    $scope.deleteProductFromCart = function (productId) {
+        $http.delete('http://localhost:8189/winter/api/v1/cart/' + productId)
+            .then(function (response) {
+                $scope.cart = response.data;
+                $scope.loadCart();
+            });
+    }
+
     $scope.loadProducts();
     $scope.loadCart();
 });

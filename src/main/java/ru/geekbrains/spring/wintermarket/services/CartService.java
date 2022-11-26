@@ -44,4 +44,8 @@ public class CartService {
         tempCart.minusProductToCart(itemId);
     }
 
+    public void deleteProductFromCart(Long itemId) {
+        tempCart.deleteProductFromCart(itemId);
+    }
+
 }
