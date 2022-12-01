@@ -3,7 +3,7 @@ package ru.geekbrains.spring.wintermarket.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.geekbrains.spring.wintermarket.dtos.Cart;
+import ru.geekbrains.spring.wintermarket.model.Cart;
 import ru.geekbrains.spring.wintermarket.services.CartService;
 
 
