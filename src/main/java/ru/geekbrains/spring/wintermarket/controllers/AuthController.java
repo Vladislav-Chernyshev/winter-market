@@ -16,12 +16,13 @@ import ru.geekbrains.spring.wintermarket.utils.JwtTokenUtil;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/auth")
 public class AuthController {
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
     private final AuthenticationManager authenticationManager;
 
-    @PostMapping("/auth")
+    @PostMapping
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));

@@ -2,13 +2,11 @@ package ru.geekbrains.spring.wintermarket.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.geekbrains.spring.wintermarket.dtos.Cart;
-import ru.geekbrains.spring.wintermarket.dtos.CartItem;
+import ru.geekbrains.spring.wintermarket.model.Cart;
 import ru.geekbrains.spring.wintermarket.entities.Product;
 import ru.geekbrains.spring.wintermarket.exceptions.ResourceNotFoundException;
 
 import javax.annotation.PostConstruct;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
